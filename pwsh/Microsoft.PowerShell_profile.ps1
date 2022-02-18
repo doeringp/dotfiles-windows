@@ -40,33 +40,6 @@ Set-Alias getip -Value Get-Container-IP
 
 <#
     .Description
-    Repeat a command multiple times.
-
-    .Example
-    repeat 5 Write-Host "Hello World"
-
-    .Example
-    repeat 10 docker run -d alpine
-#>
-function Repeat {
-    [int] $times = $args[0]
-    if ($args.Length -le 1) { 
-        return
-    }
-    $command = ""
-    for ($i = 1; $i -lt $args.Count; $i++) {
-        $command += $args[$i]
-        if ($i -le $args.Count - 1) {
-            $command += " "
-        }
-    }
-    for ($i = 0; $i -lt $times; $i++) {
-        Invoke-Expression $command
-    }
-}
-
-<#
-    .Description
     Convert a raw JSON string to formatted intended JSON.
     .Example
     curl 'https://petstore.swagger.io/v2/pet/findByStatus?status=available' -H 'accept: application/json' | Format-Json
