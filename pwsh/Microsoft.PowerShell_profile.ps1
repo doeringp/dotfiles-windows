@@ -4,11 +4,6 @@ Import-Module posh-git
 # My personal oh my posh theme
 oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\pietdoe.omp.json | Invoke-Expression
 
-# Aliases for "docker" and "docker-compose" commands to use Podman under WSL2 instead.
-Function docker { wsl sudo podman $args }
-Function podman-api { wsl sudo podman --log-level=debug system service -t0 unix:///var/run/docker.sock }
-Function docker-compose { wsl sudo docker-compose $args }
-
 <#
     .Description
     Start the Rnwood.Smtp4dev server interactively.
